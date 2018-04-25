@@ -1,0 +1,413 @@
+<!DOCTYPE HTML>
+<!--
+	Prologue by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Columbia University EECS E4764 IoT Project Report #12</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Header -->
+			<div id="header">
+
+				<div class="top">
+
+					<!-- Logo -->
+						<div id="logo">
+							<!-- <span class="image avatar48"><img src="images/avatar.jpg" alt="" /></span> -->
+							<h1 id="title">Trendy Wardrobe</h1>
+							<p>Columbia University <br>
+								EECS E4764 Fall'17 Internet of Things<br>
+								Intelligent and Connected Systems<br>
+								Team 12 Project Report
+							</p>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<!--
+
+								Prologue's nav expects links in one of two formats:
+
+								1. Hash link (scrolls to a different section within the page)
+
+								   <li><a href="#foobar" id="foobar-link" class="icon fa-whatever-icon-you-want skel-layers-ignoreHref"><span class="label">Foobar</span></a></li>
+
+								2. Standard link (sends the user to another page/site)
+
+								   <li><a href="http://foobar.tld" id="foobar-link" class="icon fa-whatever-icon-you-want"><span class="label">Foobar</span></a></li>
+
+							-->
+							<ul>
+								<li><a href="#top" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Abstract</span></a></li>
+								<li><a href="#motivation" id="motivation-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Motivation</span></a></li>
+								<li><a href="#system" id="system-link" class="skel-layers-ignoreHref"><span class="icon fa-th">System</span></a></li>
+								<li><a href="#results" id="results-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Results</span></a></li>
+								<li><a href="#references" id="references-link" class="skel-layers-ignoreHref"><span class="icon fa-th">References</span></a></li>
+								<li><a href="#team" id="team-link" class="skel-layers-ignoreHref"><span class="icon fa-user">Our Team</span></a></li>
+								<li><a href="#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Contact</span></a></li>
+							</ul>
+						</nav>
+
+				</div>
+
+				<div class="bottom">
+
+					<!-- Social Icons -->
+						<ul class="icons">
+							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+							<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+							<li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+
+				</div>
+
+			</div>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- Intro -->
+					<section id="top" class="one dark cover">
+						<div class="container">
+
+                                                                <iframe width="560" height="315" src="https://www.youtube.com/embed/f9IxWdw_RZ0" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+	
+								<h2 class="alt">Trendy Wardrobe</h2>
+								<p>A solution for anyone trying to simplify their morning!</p>
+								<p>The Trendy Wardrobe is an innovative system that recommends what to wear everyday given data like the user's calendar, preferences and current weather. This initiative combines an image capturing system, image detection and classification powered by Amazon Web Services, SVM machine learning and Online API's as well as an user friendly app that helps users decide what the appropiate clothing item is for the day.</p>
+								
+
+							<footer>
+								<a href="#motivation" class="button scrolly">Motivation</a>
+							</footer>
+
+						</div>
+					</section>
+
+				<!-- Portfolio -->
+					<section id="motivation" class="two">
+						<div class="container">
+
+							<header>
+								<h2>Motivation</h2>
+							</header>
+
+							<p align="left"></p>
+							<p align="left">We live in an era where data is everything. Everyday, we hear new milestones achieved thanks to data analytics and machine learning. Humans and machines are getting more intelligent everyday. Time is something that has not changed. Mark Zuckerberg said in an interview that he wears the same grey clothes everyday in order to focus his energy towards improving the community. The main motivation for our project was to build a system that simplifies the day to day morning routine by helping people choose what to wear by giving a recommendation that is personalized for each user.  </p>
+
+
+						</div>
+					</section>
+					
+					
+					<section id="system" class="three">
+						<div class="container">
+
+							<header>
+								<h2>System</h2>
+							</header>
+
+                                                        <h3 align="left">Block Diagram</h3>
+							<img src="images/blockdiagram.png" style="width:1000px;height:800px;">
+                                                        <hr>
+                                                        <h3 align="left">Feature Sets</h3>
+                                                            <h4 align="left">Image Classification for Detecting Clothes Location Change</h4>
+								<p align="left">
+								–	Motion sensor detects clothes movement and triggers the camera to capture an image and send to the server. <br>
+                                                                –	The server analyzes this image by Google Cloud Vision API and SVM, and recognizes the clothes id. <br>
+                                                                –       Update this clothes’s location(In wardrobe or not in wardrobe) into MongoDB.
+								</p>
+                                                            <h4 align="left">Clothes Recommendation</h4>
+								<p align="left">
+                                                                –       Only choose the clothes that are in the wardrobe.<br>
+                                                                –       According to users’ preferences, users’ schedules and weather, provide recommendation for those clothes in the wardrobe. <br>
+                                                                –       Demonstrate by Android application.
+								</p>
+                                                         <hr>
+                                                        <h3 align="left">Technical Components</h3>
+							    <h4 align="left">Hardware</h4>
+    							        <p align = "left">
+                                                                –       Arducam-Mini OVA2640 Module with Arduino Nano ESP8266 Wifi board<br>
+                                                                –       PIR motion sensor (requires 30 second calibration startup, 10 second delay between motion)<br>
+                                                                –       Operation:<br>
+                                                                </p>
+                                                                <p>
+                                                                    <img src="images/hardwareflow.jpg" style="width:1200px;height:400px;">
+                                                                </p>
+                                                            <h4 align="left">Image Classification for Detecting Clothes Location Change</h4>
+
+							        <p align="left">After receiving an image from the board, the next step in the is to clasify it. 
+                                                                The image is processed through the Google Cloud Vision API in order to find features like dominant colors, 
+                                                                type of weather the clothes should be used in, formality of the clothes and brightness of the clothes. 
+                                                                The data is normalized and sent to an SVM Module to get an unique id for each piece of clothing. 
+                                                                Such clothes id is given to our clothes’ inventory database in order to notify the location change of this clothing. 
+                                                                If this clothing is in the wardrobe before, we will change it to "out of wardrobe". Otherwise, this clothing's location will be changed from "out of wardrobe" to "in wardrobe".
+                                                                
+                                                                </p>
+						                <p>	
+							            <img src="images/labelflow.png" style="width:800px;height:500px;">
+                                                                </p>
+							
+							    <h4 align="left">Recommendation System</h4>
+    							        <p align="left">
+								In our recommendation system, we need four information to feed into our SVM learning system. 
+                                                                The first one is the clothes’ inventory. All the clothes information including location(in wardrobe or not) 
+                                                                is stored in the MongoDB in the AWS. By query MongoDB, we can know how many clothes that we can choose now since 
+                                                                we only recommend the clothes that are in the wardrobe. 
+                                                                The second one is users' preference. Users can set up their preference in our Android application “USER PREFERENCE” page. 
+                                                                Now we provide one option for users to choose. A user can choose if he/she prefers short-sleeve or not. 
+                                                                The third one is users' schedule. We link our Android application to Google Calendar API. 
+                                                                By getting the user’s everyday event, we can recommend he/she the clothes which is suitable their event. 
+                                                                For example, the user should wear more official while he/she has a meeting event. The last one is the weather information.  
+                                                                Server will get this information automatically by using Openweathermap API. Therefore, we can know that we should wear a jacket while it’s cold.<br>
+                                                                <br>
+                                                                After getting those four information, we feed them to our SVM learning system. 
+                                                                Then it will output one recommended clothes. For our SVM training system, we already used more than 1000 data to train it before. 
+                                                                Therefore, it can provide very accurate recommendation according to our input information.<br>
+                                                                <br>
+                                                                At the end of the day, users can feedback their feeling about our recommended clothes. And those can make our training system better.<br>
+                                                                </p>
+                                                                <p> 
+                                                                    <img src="images/recommend.png" style="width:800px;height:500px;" align="middle">
+                                                                </p>
+                                                                <h4 align="left">Android Application</h4>
+                                                                    <p align="left">
+                                                                    This is used to demonstrate our recommendation system. There are five functions in our Android application. 
+                                                                    The first one is the “USER PREFERENCE” page which is let users set up their preference. 
+                                                                    The second one is the “Show Clothes” page which is let users know their clothes inventory, 
+                                                                    including the clothes location(in wardrobe or not). The third one is our main function “RECOMMENDATION”. 
+                                                                    Users can get recommendation everyday from this page. The fourth one is the “USER FEEDBACK” page, 
+                                                                    which provide a place for users to feedback their opinion about the recommendation. The last one is for the demo only.
+                                                                    </p>
+						                    <style>
+									.newspaper {
+									    -webkit-column-count: 3; /* Chrome, Safari, Opera */
+									    -moz-column-count: 3; /* Firefox */
+									    column-count: 3;
+									}
+							            </style>
+
+                                                                    <div class="newspaper">
+                                                                       <p> Main menu of our application
+                                                                       <a href="#" class="image fit"><img src="images/android_all.png" alt="" /></a>
+                                                                       </p>
+                                                                       <p>USER PREFERENCE page
+                                                                       <a href="#" class="image fit"><img src="images/android_pref.png" alt="" /></a>
+                                                                       </p>
+                                                                       <p>Show Clothes page
+                                                                       <a href="#" class="image fit"><img src="images/android_show.png" alt="" /></a>
+                                                                       </p>
+                                                                    </div>
+                                                                    <div class="newspaper">
+                                                                       <p>RECOMMENDATION page
+                                                                       <a href="#" class="image fit"><img src="images/android_recommend.png" alt="" /></a>
+                                                                       </p>
+                                                                       <p>USER FEEDBACK page
+                                                                       <a href="#" class="image fit"><img src="images/android_feedback.png" alt="" /></a>
+                                                                       </p>
+                                                                       <p>DEMO page
+                                                                       <a href="#" class="image fit"><img src="images/android_demo.png" alt="" /></a>
+                                                                       </p>
+                                                                    </div>
+
+
+
+						</div>
+					</section>
+					
+					
+					<section id="results" class="two">
+						<div class="container">
+
+							<header>
+								<h2>Results</h2>
+							</header>
+
+							<h3 align="left">Features of the Wish List accomplished</h3>
+							<img src="images/wishlist.png" style="width:1100px;height:700px;">
+
+							<h3 align="left">Stage Milestones Finished</h3>
+							<img src="images/results.png" style="width:1200px;height:500px;">
+							
+							<h3 align="left">Recommendation Results on Android Application</h3>
+							<style>
+                                                            .newspaper {
+                                                                -webkit-column-count: 3; /* Chrome, Safari, Opera */
+                                                                -moz-column-count: 3; /* Firefox */
+                                                                column-count: 3;
+                                                            }
+                                                        </style>
+                                                        <div class="newspaper">
+                                                           <p> Temperature = -9 (Antarctica), No event
+                                                           <a href="#" class="image fit"><img src="images/android_14_9.png" alt="" /></a>
+                                                           </p>
+                                                           <p>Temperature = 60 (Taiwan), No event
+                                                           <a href="#" class="image fit"><img src="images/android_14_60.png" alt="" /></a>
+                                                           </p>
+                                                           <p>Temperature = 84 (Darwin), No event
+                                                           <a href="#" class="image fit"><img src="images/android_14_84.png" alt="" /></a>
+                                                           </p>
+                                                        </div>
+                                                        <div class="newspaper">
+                                                           <p> Temperature = 20 (New York) <br>Google Calendar event = Meeting
+                                                           <a href="#" class="image fit"><img src="images/android_13_20.png" alt="" /></a>
+                                                           </p>
+                                                           <p>Temperature = 20 (New York) <br>Google Calendar event = Halloween
+                                                           <a href="#" class="image fit"><img src="images/android_15_20.png" alt="" /></a>
+                                                           </p>
+                                                           <p>Temperature = 60 (Taiwan)<br>Google Calendar event = beach
+                                                           <a href="#" class="image fit"><img src="images/android_17_60.png" alt="" /></a>
+                                                           </p>
+                                                        </div>
+                                                        <div class="newspaper">
+                                                           <p> Temperature = 20 (New York) <br>Google Calendar event = Birthday Party
+                                                           <a href="#" class="image fit"><img src="images/android_16_20.png" alt="" /></a>
+                                                           </p>
+                                                           <p>Temperature = 60 (Taiwan)<br>Google Calendar event = Birthday Party
+                                                           <a href="#" class="image fit"><img src="images/android_16_60.png" alt="" /></a>
+                                                           </p>
+                                                           <p>Temperature = 20 (New York) <br>Google Calendar event = Chinese New Year
+                                                           <a href="#" class="image fit"><img src="images/android_0216_20.png" alt="" /></a>
+                                                           </p>
+                                                        </div>
+						</div>
+					</section>
+					
+					<section id="references" class="three">
+						<div class="container">
+
+							<header>
+								<h2>References</h2>
+							</header>
+
+							<p align="left">
+                                                        1. https://cloud.google.com/vision/docs/detecting-labels#vision-label-detection-python<br>
+                                                        2. https://cloud.google.com/vision/docs/detecting-properties<br>
+                                                        3. https://developers.google.com/google-apps/calendar/quickstart/python<br>
+                                                        4. http://scikit-learn.org/stable/modules/svm.html<br>
+							7. https://cdn.instructables.com/ORIG/F9W/40DH/ILJSHKZK/F9W40DHILJSHKZK.pdf
+                                                        </p>
+
+						</div>
+					</section>
+					
+
+				<!-- About Me -->
+					<section id="team" class="two">
+						<div class="container">
+
+							<header>
+								<h2>Our Team</h2>
+							</header>
+
+							<div class="row">
+								<div class="4u 12u$(mobile)">
+									<article class="item">
+										<a href="#" class="image fit"><img src="images/siaoting.jpg" alt="" /></a>
+										<header>
+											<p>Siao-Ting Wang<p>
+											<p>Recommendation System, Android application, Cloud Service(AWS), Database(MongoDB), SVM<p>
+                                                                                        <p>
+                                                                                        LinkedIn: <a href="https://www.linkedin.com/in/siaotingwang">Siao-Ting Wang</a>
+                                                                                        </p>
+
+										</header>
+									</article>
+								</div>
+								<div class="4u 12u$(mobile)">
+									<article class="item">
+										<a href="#" class="image fit"><img src="images/eriksu.jpg" alt="" /></a>
+										<header>
+											<h3>Erik Su</h3>
+											<p>Hardware Implementation</p>
+										</header>
+									</article>
+								</div>
+								<div class="4u$ 12u$(mobile)">
+									<article class="item">
+										<a href="#" class="image fit"><img src="images/miguelbelfort.jpg" alt="" /></a>
+										<header>
+											<h3>Miguel Belfort</h3>
+											<p>Image Detection and Labeling</p>
+											<p>
+                                                                                        LinkedIn: <a href="https://www.linkedin.com/in/miguel-belfort-otero-0a2286a1">Miguel Belfort</a>
+                                                                                        </p>
+										</header>
+									</article>
+								</div>
+							</div>
+
+						</div>
+					</section>
+
+				<!-- Contact -->
+					<section id="contact" class="four">
+						<div class="container">
+
+							<header>
+								<h2>Contact</h2>
+							</header>
+
+							<p align="left">
+								<strong>Siao-Ting Wang: </strong>sw3092@columbia.edu</br>
+								<strong>Erik Su: </strong>es3573@columbia.edu</br>
+								<strong>Miguel Belfort: </strong>miguel.belfort@columbia.edu</br>
+							</br>
+								<strong>Columbia University </strong><a href="http://www.ee.columbia.edu">Department of Electrical Engineering</a><br>
+								<!-- <strong>Class Website:</strong>
+									<a href="https://edblogs.columbia.edu/eecse4764-001-2016-3/">Columbia University EECS E4764 Fall '17 IoT</a></br> -->
+								<strong>Instructor:</strong> <a href="http://fredjiang.com/">Professsor Xiaofan (Fred) Jiang</a>
+							</p>
+							
+
+							<!-- <form method="post" action="#">
+								<div class="row">
+									<div class="6u 12u$(mobile)"><input type="text" name="name" placeholder="Name" /></div>
+									<div class="6u$ 12u$(mobile)"><input type="text" name="email" placeholder="Email" /></div>
+									<div class="12u$">
+										<textarea name="message" placeholder="Message"></textarea>
+									</div>
+									<div class="12u$">
+										<input type="submit" value="Send Message" />
+									</div>
+								</div>
+							</form> -->
+
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<div id="footer">
+
+				<!-- Copyright -->
+					<ul class="copyright">
+						<li>&copy; IoT Project | All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollzer.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
